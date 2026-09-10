@@ -39,6 +39,7 @@ export const imageService = {
   async create(req) {
     const body = req.body;
     const file = req.file;
+    const userId = req.user.user_id;
     let imageUrl = body.url;
     let publicId = null;
     if (file) {
@@ -55,7 +56,7 @@ export const imageService = {
         url: imageUrl,
         public_id: publicId,
         description: body.description,
-        user_id: 1,
+        user_id: userId,
       },
     });
     return true;
