@@ -1,0 +1,21 @@
+import { statusCodes } from "./statusCode.helper.js";
+
+export const responseSuccess = (result, message = "Get list successfully", statusCode = statusCodes.OK) => {
+  return {
+    status: "success",
+    statusCode,
+    message,
+    data: result,
+    doc: "swagger.com",
+  };
+};
+
+export const responseError = (message = "Internal server error", statusCode = statusCodes.INTERNAL_SERVER_ERROR, stack) => {
+  return {
+    status: "error",
+    statusCode,
+    message,
+    stack,
+    doc: "swagger.com",
+  };
+};
