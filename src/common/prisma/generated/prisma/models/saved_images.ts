@@ -29,43 +29,29 @@ export type AggregateSaved_images = {
 export type Saved_imagesAvgAggregateOutputType = {
   user_id: number | null
   image_id: number | null
-  deletedBy: number | null
 }
 
 export type Saved_imagesSumAggregateOutputType = {
   user_id: number | null
   image_id: number | null
-  deletedBy: number | null
 }
 
 export type Saved_imagesMinAggregateOutputType = {
   user_id: number | null
   image_id: number | null
-  deletedBy: number | null
-  isDeleted: boolean | null
-  deletedAt: Date | null
   createdAt: Date | null
-  updatedAt: Date | null
 }
 
 export type Saved_imagesMaxAggregateOutputType = {
   user_id: number | null
   image_id: number | null
-  deletedBy: number | null
-  isDeleted: boolean | null
-  deletedAt: Date | null
   createdAt: Date | null
-  updatedAt: Date | null
 }
 
 export type Saved_imagesCountAggregateOutputType = {
   user_id: number
   image_id: number
-  deletedBy: number
-  isDeleted: number
-  deletedAt: number
   createdAt: number
-  updatedAt: number
   _all: number
 }
 
@@ -73,43 +59,29 @@ export type Saved_imagesCountAggregateOutputType = {
 export type Saved_imagesAvgAggregateInputType = {
   user_id?: true
   image_id?: true
-  deletedBy?: true
 }
 
 export type Saved_imagesSumAggregateInputType = {
   user_id?: true
   image_id?: true
-  deletedBy?: true
 }
 
 export type Saved_imagesMinAggregateInputType = {
   user_id?: true
   image_id?: true
-  deletedBy?: true
-  isDeleted?: true
-  deletedAt?: true
   createdAt?: true
-  updatedAt?: true
 }
 
 export type Saved_imagesMaxAggregateInputType = {
   user_id?: true
   image_id?: true
-  deletedBy?: true
-  isDeleted?: true
-  deletedAt?: true
   createdAt?: true
-  updatedAt?: true
 }
 
 export type Saved_imagesCountAggregateInputType = {
   user_id?: true
   image_id?: true
-  deletedBy?: true
-  isDeleted?: true
-  deletedAt?: true
   createdAt?: true
-  updatedAt?: true
   _all?: true
 }
 
@@ -202,11 +174,7 @@ export type saved_imagesGroupByArgs<ExtArgs extends runtime.Types.Extensions.Int
 export type Saved_imagesGroupByOutputType = {
   user_id: number
   image_id: number
-  deletedBy: number
-  isDeleted: boolean
-  deletedAt: Date | null
   createdAt: Date
-  updatedAt: Date
   _count: Saved_imagesCountAggregateOutputType | null
   _avg: Saved_imagesAvgAggregateOutputType | null
   _sum: Saved_imagesSumAggregateOutputType | null
@@ -235,11 +203,7 @@ export type saved_imagesWhereInput = {
   NOT?: Prisma.saved_imagesWhereInput | Prisma.saved_imagesWhereInput[]
   user_id?: Prisma.IntFilter<"saved_images"> | number
   image_id?: Prisma.IntFilter<"saved_images"> | number
-  deletedBy?: Prisma.IntFilter<"saved_images"> | number
-  isDeleted?: Prisma.BoolFilter<"saved_images"> | boolean
-  deletedAt?: Prisma.DateTimeNullableFilter<"saved_images"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"saved_images"> | Date | string
-  updatedAt?: Prisma.DateTimeFilter<"saved_images"> | Date | string
   users?: Prisma.XOR<Prisma.UsersScalarRelationFilter, Prisma.usersWhereInput>
   images?: Prisma.XOR<Prisma.ImagesScalarRelationFilter, Prisma.imagesWhereInput>
 }
@@ -247,11 +211,7 @@ export type saved_imagesWhereInput = {
 export type saved_imagesOrderByWithRelationInput = {
   user_id?: Prisma.SortOrder
   image_id?: Prisma.SortOrder
-  deletedBy?: Prisma.SortOrder
-  isDeleted?: Prisma.SortOrder
-  deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
-  updatedAt?: Prisma.SortOrder
   users?: Prisma.usersOrderByWithRelationInput
   images?: Prisma.imagesOrderByWithRelationInput
 }
@@ -263,11 +223,7 @@ export type saved_imagesWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.saved_imagesWhereInput | Prisma.saved_imagesWhereInput[]
   user_id?: Prisma.IntFilter<"saved_images"> | number
   image_id?: Prisma.IntFilter<"saved_images"> | number
-  deletedBy?: Prisma.IntFilter<"saved_images"> | number
-  isDeleted?: Prisma.BoolFilter<"saved_images"> | boolean
-  deletedAt?: Prisma.DateTimeNullableFilter<"saved_images"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"saved_images"> | Date | string
-  updatedAt?: Prisma.DateTimeFilter<"saved_images"> | Date | string
   users?: Prisma.XOR<Prisma.UsersScalarRelationFilter, Prisma.usersWhereInput>
   images?: Prisma.XOR<Prisma.ImagesScalarRelationFilter, Prisma.imagesWhereInput>
 }, "user_id_image_id">
@@ -275,11 +231,7 @@ export type saved_imagesWhereUniqueInput = Prisma.AtLeast<{
 export type saved_imagesOrderByWithAggregationInput = {
   user_id?: Prisma.SortOrder
   image_id?: Prisma.SortOrder
-  deletedBy?: Prisma.SortOrder
-  isDeleted?: Prisma.SortOrder
-  deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
-  updatedAt?: Prisma.SortOrder
   _count?: Prisma.saved_imagesCountOrderByAggregateInput
   _avg?: Prisma.saved_imagesAvgOrderByAggregateInput
   _max?: Prisma.saved_imagesMaxOrderByAggregateInput
@@ -293,19 +245,11 @@ export type saved_imagesScalarWhereWithAggregatesInput = {
   NOT?: Prisma.saved_imagesScalarWhereWithAggregatesInput | Prisma.saved_imagesScalarWhereWithAggregatesInput[]
   user_id?: Prisma.IntWithAggregatesFilter<"saved_images"> | number
   image_id?: Prisma.IntWithAggregatesFilter<"saved_images"> | number
-  deletedBy?: Prisma.IntWithAggregatesFilter<"saved_images"> | number
-  isDeleted?: Prisma.BoolWithAggregatesFilter<"saved_images"> | boolean
-  deletedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"saved_images"> | Date | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"saved_images"> | Date | string
-  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"saved_images"> | Date | string
 }
 
 export type saved_imagesCreateInput = {
-  deletedBy?: number
-  isDeleted?: boolean
-  deletedAt?: Date | string | null
   createdAt?: Date | string
-  updatedAt?: Date | string
   users: Prisma.usersCreateNestedOneWithoutSaved_imagesInput
   images: Prisma.imagesCreateNestedOneWithoutSaved_imagesInput
 }
@@ -313,19 +257,11 @@ export type saved_imagesCreateInput = {
 export type saved_imagesUncheckedCreateInput = {
   user_id: number
   image_id: number
-  deletedBy?: number
-  isDeleted?: boolean
-  deletedAt?: Date | string | null
   createdAt?: Date | string
-  updatedAt?: Date | string
 }
 
 export type saved_imagesUpdateInput = {
-  deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
-  isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   users?: Prisma.usersUpdateOneRequiredWithoutSaved_imagesNestedInput
   images?: Prisma.imagesUpdateOneRequiredWithoutSaved_imagesNestedInput
 }
@@ -333,39 +269,23 @@ export type saved_imagesUpdateInput = {
 export type saved_imagesUncheckedUpdateInput = {
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
   image_id?: Prisma.IntFieldUpdateOperationsInput | number
-  deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
-  isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type saved_imagesCreateManyInput = {
   user_id: number
   image_id: number
-  deletedBy?: number
-  isDeleted?: boolean
-  deletedAt?: Date | string | null
   createdAt?: Date | string
-  updatedAt?: Date | string
 }
 
 export type saved_imagesUpdateManyMutationInput = {
-  deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
-  isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type saved_imagesUncheckedUpdateManyInput = {
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
   image_id?: Prisma.IntFieldUpdateOperationsInput | number
-  deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
-  isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type Saved_imagesListRelationFilter = {
@@ -386,43 +306,29 @@ export type saved_imagesUser_idImage_idCompoundUniqueInput = {
 export type saved_imagesCountOrderByAggregateInput = {
   user_id?: Prisma.SortOrder
   image_id?: Prisma.SortOrder
-  deletedBy?: Prisma.SortOrder
-  isDeleted?: Prisma.SortOrder
-  deletedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
-  updatedAt?: Prisma.SortOrder
 }
 
 export type saved_imagesAvgOrderByAggregateInput = {
   user_id?: Prisma.SortOrder
   image_id?: Prisma.SortOrder
-  deletedBy?: Prisma.SortOrder
 }
 
 export type saved_imagesMaxOrderByAggregateInput = {
   user_id?: Prisma.SortOrder
   image_id?: Prisma.SortOrder
-  deletedBy?: Prisma.SortOrder
-  isDeleted?: Prisma.SortOrder
-  deletedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
-  updatedAt?: Prisma.SortOrder
 }
 
 export type saved_imagesMinOrderByAggregateInput = {
   user_id?: Prisma.SortOrder
   image_id?: Prisma.SortOrder
-  deletedBy?: Prisma.SortOrder
-  isDeleted?: Prisma.SortOrder
-  deletedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
-  updatedAt?: Prisma.SortOrder
 }
 
 export type saved_imagesSumOrderByAggregateInput = {
   user_id?: Prisma.SortOrder
   image_id?: Prisma.SortOrder
-  deletedBy?: Prisma.SortOrder
 }
 
 export type saved_imagesCreateNestedManyWithoutImagesInput = {
@@ -510,21 +416,13 @@ export type saved_imagesUncheckedUpdateManyWithoutUsersNestedInput = {
 }
 
 export type saved_imagesCreateWithoutImagesInput = {
-  deletedBy?: number
-  isDeleted?: boolean
-  deletedAt?: Date | string | null
   createdAt?: Date | string
-  updatedAt?: Date | string
   users: Prisma.usersCreateNestedOneWithoutSaved_imagesInput
 }
 
 export type saved_imagesUncheckedCreateWithoutImagesInput = {
   user_id: number
-  deletedBy?: number
-  isDeleted?: boolean
-  deletedAt?: Date | string | null
   createdAt?: Date | string
-  updatedAt?: Date | string
 }
 
 export type saved_imagesCreateOrConnectWithoutImagesInput = {
@@ -559,29 +457,17 @@ export type saved_imagesScalarWhereInput = {
   NOT?: Prisma.saved_imagesScalarWhereInput | Prisma.saved_imagesScalarWhereInput[]
   user_id?: Prisma.IntFilter<"saved_images"> | number
   image_id?: Prisma.IntFilter<"saved_images"> | number
-  deletedBy?: Prisma.IntFilter<"saved_images"> | number
-  isDeleted?: Prisma.BoolFilter<"saved_images"> | boolean
-  deletedAt?: Prisma.DateTimeNullableFilter<"saved_images"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"saved_images"> | Date | string
-  updatedAt?: Prisma.DateTimeFilter<"saved_images"> | Date | string
 }
 
 export type saved_imagesCreateWithoutUsersInput = {
-  deletedBy?: number
-  isDeleted?: boolean
-  deletedAt?: Date | string | null
   createdAt?: Date | string
-  updatedAt?: Date | string
   images: Prisma.imagesCreateNestedOneWithoutSaved_imagesInput
 }
 
 export type saved_imagesUncheckedCreateWithoutUsersInput = {
   image_id: number
-  deletedBy?: number
-  isDeleted?: boolean
-  deletedAt?: Date | string | null
   createdAt?: Date | string
-  updatedAt?: Date | string
 }
 
 export type saved_imagesCreateOrConnectWithoutUsersInput = {
@@ -612,74 +498,42 @@ export type saved_imagesUpdateManyWithWhereWithoutUsersInput = {
 
 export type saved_imagesCreateManyImagesInput = {
   user_id: number
-  deletedBy?: number
-  isDeleted?: boolean
-  deletedAt?: Date | string | null
   createdAt?: Date | string
-  updatedAt?: Date | string
 }
 
 export type saved_imagesUpdateWithoutImagesInput = {
-  deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
-  isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   users?: Prisma.usersUpdateOneRequiredWithoutSaved_imagesNestedInput
 }
 
 export type saved_imagesUncheckedUpdateWithoutImagesInput = {
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
-  deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
-  isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type saved_imagesUncheckedUpdateManyWithoutImagesInput = {
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
-  deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
-  isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type saved_imagesCreateManyUsersInput = {
   image_id: number
-  deletedBy?: number
-  isDeleted?: boolean
-  deletedAt?: Date | string | null
   createdAt?: Date | string
-  updatedAt?: Date | string
 }
 
 export type saved_imagesUpdateWithoutUsersInput = {
-  deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
-  isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   images?: Prisma.imagesUpdateOneRequiredWithoutSaved_imagesNestedInput
 }
 
 export type saved_imagesUncheckedUpdateWithoutUsersInput = {
   image_id?: Prisma.IntFieldUpdateOperationsInput | number
-  deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
-  isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type saved_imagesUncheckedUpdateManyWithoutUsersInput = {
   image_id?: Prisma.IntFieldUpdateOperationsInput | number
-  deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
-  isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -687,11 +541,7 @@ export type saved_imagesUncheckedUpdateManyWithoutUsersInput = {
 export type saved_imagesSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   user_id?: boolean
   image_id?: boolean
-  deletedBy?: boolean
-  isDeleted?: boolean
-  deletedAt?: boolean
   createdAt?: boolean
-  updatedAt?: boolean
   users?: boolean | Prisma.usersDefaultArgs<ExtArgs>
   images?: boolean | Prisma.imagesDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["saved_images"]>
@@ -701,14 +551,10 @@ export type saved_imagesSelect<ExtArgs extends runtime.Types.Extensions.Internal
 export type saved_imagesSelectScalar = {
   user_id?: boolean
   image_id?: boolean
-  deletedBy?: boolean
-  isDeleted?: boolean
-  deletedAt?: boolean
   createdAt?: boolean
-  updatedAt?: boolean
 }
 
-export type saved_imagesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"user_id" | "image_id" | "deletedBy" | "isDeleted" | "deletedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["saved_images"]>
+export type saved_imagesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"user_id" | "image_id" | "createdAt", ExtArgs["result"]["saved_images"]>
 export type saved_imagesInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   users?: boolean | Prisma.usersDefaultArgs<ExtArgs>
   images?: boolean | Prisma.imagesDefaultArgs<ExtArgs>
@@ -723,11 +569,7 @@ export type $saved_imagesPayload<ExtArgs extends runtime.Types.Extensions.Intern
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     user_id: number
     image_id: number
-    deletedBy: number
-    isDeleted: boolean
-    deletedAt: Date | null
     createdAt: Date
-    updatedAt: Date
   }, ExtArgs["result"]["saved_images"]>
   composites: {}
 }
@@ -1101,11 +943,7 @@ export interface Prisma__saved_imagesClient<T, Null = never, ExtArgs extends run
 export interface saved_imagesFieldRefs {
   readonly user_id: Prisma.FieldRef<"saved_images", 'Int'>
   readonly image_id: Prisma.FieldRef<"saved_images", 'Int'>
-  readonly deletedBy: Prisma.FieldRef<"saved_images", 'Int'>
-  readonly isDeleted: Prisma.FieldRef<"saved_images", 'Boolean'>
-  readonly deletedAt: Prisma.FieldRef<"saved_images", 'DateTime'>
   readonly createdAt: Prisma.FieldRef<"saved_images", 'DateTime'>
-  readonly updatedAt: Prisma.FieldRef<"saved_images", 'DateTime'>
 }
     
 

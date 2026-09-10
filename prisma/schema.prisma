@@ -47,13 +47,9 @@ model images {
 model saved_images {
   user_id   Int
   image_id  Int
-  deletedBy Int       @default(0)
-  isDeleted Boolean   @default(false)
-  deletedAt DateTime? @db.Timestamp(0)
-  createdAt DateTime  @default(now()) @db.Timestamp(0)
-  updatedAt DateTime  @default(now()) @db.Timestamp(0)
-  users     users     @relation(fields: [user_id], references: [user_id], onDelete: NoAction, onUpdate: NoAction, map: "saved_images_ibfk_1")
-  images    images    @relation(fields: [image_id], references: [image_id], onDelete: NoAction, onUpdate: NoAction, map: "saved_images_ibfk_2")
+  createdAt DateTime @default(now()) @db.Timestamp(0)
+  users     users    @relation(fields: [user_id], references: [user_id], onDelete: NoAction, onUpdate: NoAction, map: "saved_images_ibfk_1")
+  images    images   @relation(fields: [image_id], references: [image_id], onDelete: NoAction, onUpdate: NoAction, map: "saved_images_ibfk_2")
 
   @@id([user_id, image_id])
   @@index([image_id], map: "image_id")

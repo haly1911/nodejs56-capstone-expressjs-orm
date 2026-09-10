@@ -108,11 +108,7 @@ export type ImagesScalarFieldEnum = (typeof ImagesScalarFieldEnum)[keyof typeof 
 export const Saved_imagesScalarFieldEnum = {
   user_id: 'user_id',
   image_id: 'image_id',
-  deletedBy: 'deletedBy',
-  isDeleted: 'isDeleted',
-  deletedAt: 'deletedAt',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  createdAt: 'createdAt'
 } as const
 
 export type Saved_imagesScalarFieldEnum = (typeof Saved_imagesScalarFieldEnum)[keyof typeof Saved_imagesScalarFieldEnum]
