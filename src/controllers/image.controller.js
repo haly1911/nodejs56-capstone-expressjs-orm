@@ -3,32 +3,38 @@ import { responseSuccess } from "../common/helpers/response.helper.js";
 import { statusCodes } from "../common/helpers/statusCode.helper.js";
 
 export const imageController = {
-  async findAll(req, res) {
-    const result = await imageService.findAll(req, res);
+  async getImageList(req, res) {
+    const result = await imageService.getListImage(req, res);
     const response = responseSuccess(result, `Get all images successfully`);
     res.status(response.statusCode).json(response);
   },
 
-  async findOne(req, res) {
-    const result = await imageService.findOne(req, res);
+  async getImagesByUser(req, res) {
+    const result = await imageService.getImagesByUser(req, res);
+    const response = responseSuccess(result, `Get images created by user successfully`);
+    res.status(response.statusCode).json(response);
+  },
+
+  async getImageDetails(req, res) {
+    const result = await imageService.getImageDetails(req, res);
     const response = responseSuccess(result, `Get image successfully`);
     res.status(response.statusCode).json(response);
   },
 
-  async create(req, res) {
-    const result = await imageService.create(req);
+  async createImage(req, res) {
+    const result = await imageService.createImage(req);
     const response = responseSuccess(result, `Create image successfully`, statusCodes.CREATED);
     res.status(response.statusCode).json(response);
   },
 
-  async update(req, res) {
-    const result = await imageService.update(req);
+  async updateImage(req, res) {
+    const result = await imageService.updateImage(req);
     const response = responseSuccess(result, `Update image successfully`);
     res.status(response.statusCode).json(response);
   },
 
-  async remove(req, res) {
-    const result = await imageService.remove(req);
+  async deleteImage(req, res) {
+    const result = await imageService.deleteImage(req);
     const response = responseSuccess(result, `Remove image successfully`);
     res.status(response.statusCode).json(response);
   },

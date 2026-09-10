@@ -4,7 +4,7 @@ import { deleteFromCloudinary, uploadToCloudinary } from "../common/helpers/clou
 import { BadRequestException } from "../common/helpers/exception.helper.js";
 
 export const imageService = {
-  async findAll(req) {
+  async getListImage(req) {
     const { where, page, pageSize, index } = buildQueryPrisma(req);
     const resultPrisma = await prisma.images.findMany({
       where,
@@ -24,7 +24,25 @@ export const imageService = {
     };
   },
 
-  async findOne(req) {
+  async getImagesByUser(req) {
+    const userId = req.user.user_id;
+    const { where, page, pageSize, index } = buildQueryPrisma(req);
+    const resultPrisma = await prisma.images.findMany({
+      where: { ...where, user_id: userId },
+      skip: index,
+      take: pageSize,
+    });
+    const totalItems = await prisma.images.count({ where: { ...where, user_id: userId } });
+    const totalPages = Math.ceil(totalItems / pageSize);
+    return {
+      items: resultPrisma,
+      totalItems,
+      totalPages,
+      pageSize,
+    };
+  },
+
+  async getImageDetails(req) {
     const { imageId } = req.params;
     const result = await prisma.images.findUnique({
       where: {
@@ -36,7 +54,7 @@ export const imageService = {
     return result;
   },
 
-  async create(req) {
+  async createImage(req) {
     const body = req.body;
     const file = req.file;
     const userId = req.user.user_id;
@@ -62,7 +80,7 @@ export const imageService = {
     return true;
   },
 
-  async update(req) {
+  async updateImage(req) {
     const body = req.body;
     const file = req.file;
     const { imageId } = req.params;
@@ -94,7 +112,7 @@ export const imageService = {
     return true;
   },
 
-  async remove(req) {
+  async deleteImage(req) {
     const { imageId } = req.params;
     await prisma.images.update({
       where: {

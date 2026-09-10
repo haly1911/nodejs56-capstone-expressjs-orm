@@ -5,10 +5,11 @@ import { protect } from "../common/middleware/protect.middleware.js";
 
 const imageRouter = express.Router();
 
-imageRouter.get("/", imageController.findAll);
-imageRouter.get("/:imageId", imageController.findOne);
-imageRouter.post("/", protect, uploadMemory.single("image"), imageController.create);
-imageRouter.put("/:imageId", protect, uploadMemory.single("image"), imageController.update);
-imageRouter.delete("/:imageId", protect, imageController.remove);
+imageRouter.get("/", imageController.getImageList);
+imageRouter.get("/created", protect, imageController.getImagesByUser);
+imageRouter.get("/:imageId", imageController.getImageDetails);
+imageRouter.post("/", protect, uploadMemory.single("image"), imageController.createImage);
+imageRouter.put("/:imageId", protect, uploadMemory.single("image"), imageController.updateImage);
+imageRouter.delete("/:imageId", protect, imageController.deleteImage);
 
 export default imageRouter;
