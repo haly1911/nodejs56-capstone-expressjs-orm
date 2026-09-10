@@ -45,6 +45,7 @@ export type UsersMinAggregateOutputType = {
   full_name: string | null
   age: number | null
   avatar: string | null
+  avatar_public_id: string | null
   deletedBy: number | null
   isDeleted: boolean | null
   deletedAt: Date | null
@@ -59,6 +60,7 @@ export type UsersMaxAggregateOutputType = {
   full_name: string | null
   age: number | null
   avatar: string | null
+  avatar_public_id: string | null
   deletedBy: number | null
   isDeleted: boolean | null
   deletedAt: Date | null
@@ -73,6 +75,7 @@ export type UsersCountAggregateOutputType = {
   full_name: number
   age: number
   avatar: number
+  avatar_public_id: number
   deletedBy: number
   isDeleted: number
   deletedAt: number
@@ -101,6 +104,7 @@ export type UsersMinAggregateInputType = {
   full_name?: true
   age?: true
   avatar?: true
+  avatar_public_id?: true
   deletedBy?: true
   isDeleted?: true
   deletedAt?: true
@@ -115,6 +119,7 @@ export type UsersMaxAggregateInputType = {
   full_name?: true
   age?: true
   avatar?: true
+  avatar_public_id?: true
   deletedBy?: true
   isDeleted?: true
   deletedAt?: true
@@ -129,6 +134,7 @@ export type UsersCountAggregateInputType = {
   full_name?: true
   age?: true
   avatar?: true
+  avatar_public_id?: true
   deletedBy?: true
   isDeleted?: true
   deletedAt?: true
@@ -230,6 +236,7 @@ export type UsersGroupByOutputType = {
   full_name: string | null
   age: number | null
   avatar: string | null
+  avatar_public_id: string | null
   deletedBy: number
   isDeleted: boolean
   deletedAt: Date | null
@@ -267,6 +274,7 @@ export type usersWhereInput = {
   full_name?: Prisma.StringNullableFilter<"users"> | string | null
   age?: Prisma.IntNullableFilter<"users"> | number | null
   avatar?: Prisma.StringNullableFilter<"users"> | string | null
+  avatar_public_id?: Prisma.StringNullableFilter<"users"> | string | null
   deletedBy?: Prisma.IntFilter<"users"> | number
   isDeleted?: Prisma.BoolFilter<"users"> | boolean
   deletedAt?: Prisma.DateTimeNullableFilter<"users"> | Date | string | null
@@ -284,6 +292,7 @@ export type usersOrderByWithRelationInput = {
   full_name?: Prisma.SortOrderInput | Prisma.SortOrder
   age?: Prisma.SortOrderInput | Prisma.SortOrder
   avatar?: Prisma.SortOrderInput | Prisma.SortOrder
+  avatar_public_id?: Prisma.SortOrderInput | Prisma.SortOrder
   deletedBy?: Prisma.SortOrder
   isDeleted?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -305,6 +314,7 @@ export type usersWhereUniqueInput = Prisma.AtLeast<{
   full_name?: Prisma.StringNullableFilter<"users"> | string | null
   age?: Prisma.IntNullableFilter<"users"> | number | null
   avatar?: Prisma.StringNullableFilter<"users"> | string | null
+  avatar_public_id?: Prisma.StringNullableFilter<"users"> | string | null
   deletedBy?: Prisma.IntFilter<"users"> | number
   isDeleted?: Prisma.BoolFilter<"users"> | boolean
   deletedAt?: Prisma.DateTimeNullableFilter<"users"> | Date | string | null
@@ -322,6 +332,7 @@ export type usersOrderByWithAggregationInput = {
   full_name?: Prisma.SortOrderInput | Prisma.SortOrder
   age?: Prisma.SortOrderInput | Prisma.SortOrder
   avatar?: Prisma.SortOrderInput | Prisma.SortOrder
+  avatar_public_id?: Prisma.SortOrderInput | Prisma.SortOrder
   deletedBy?: Prisma.SortOrder
   isDeleted?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -344,6 +355,7 @@ export type usersScalarWhereWithAggregatesInput = {
   full_name?: Prisma.StringNullableWithAggregatesFilter<"users"> | string | null
   age?: Prisma.IntNullableWithAggregatesFilter<"users"> | number | null
   avatar?: Prisma.StringNullableWithAggregatesFilter<"users"> | string | null
+  avatar_public_id?: Prisma.StringNullableWithAggregatesFilter<"users"> | string | null
   deletedBy?: Prisma.IntWithAggregatesFilter<"users"> | number
   isDeleted?: Prisma.BoolWithAggregatesFilter<"users"> | boolean
   deletedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"users"> | Date | string | null
@@ -357,6 +369,7 @@ export type usersCreateInput = {
   full_name?: string | null
   age?: number | null
   avatar?: string | null
+  avatar_public_id?: string | null
   deletedBy?: number
   isDeleted?: boolean
   deletedAt?: Date | string | null
@@ -374,6 +387,7 @@ export type usersUncheckedCreateInput = {
   full_name?: string | null
   age?: number | null
   avatar?: string | null
+  avatar_public_id?: string | null
   deletedBy?: number
   isDeleted?: boolean
   deletedAt?: Date | string | null
@@ -390,6 +404,7 @@ export type usersUpdateInput = {
   full_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   age?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar_public_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -407,6 +422,7 @@ export type usersUncheckedUpdateInput = {
   full_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   age?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar_public_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -424,6 +440,7 @@ export type usersCreateManyInput = {
   full_name?: string | null
   age?: number | null
   avatar?: string | null
+  avatar_public_id?: string | null
   deletedBy?: number
   isDeleted?: boolean
   deletedAt?: Date | string | null
@@ -437,6 +454,7 @@ export type usersUpdateManyMutationInput = {
   full_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   age?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar_public_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -451,6 +469,7 @@ export type usersUncheckedUpdateManyInput = {
   full_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   age?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar_public_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -476,6 +495,7 @@ export type usersCountOrderByAggregateInput = {
   full_name?: Prisma.SortOrder
   age?: Prisma.SortOrder
   avatar?: Prisma.SortOrder
+  avatar_public_id?: Prisma.SortOrder
   deletedBy?: Prisma.SortOrder
   isDeleted?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrder
@@ -496,6 +516,7 @@ export type usersMaxOrderByAggregateInput = {
   full_name?: Prisma.SortOrder
   age?: Prisma.SortOrder
   avatar?: Prisma.SortOrder
+  avatar_public_id?: Prisma.SortOrder
   deletedBy?: Prisma.SortOrder
   isDeleted?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrder
@@ -510,6 +531,7 @@ export type usersMinOrderByAggregateInput = {
   full_name?: Prisma.SortOrder
   age?: Prisma.SortOrder
   avatar?: Prisma.SortOrder
+  avatar_public_id?: Prisma.SortOrder
   deletedBy?: Prisma.SortOrder
   isDeleted?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrder
@@ -579,6 +601,7 @@ export type usersCreateWithoutCommentsInput = {
   full_name?: string | null
   age?: number | null
   avatar?: string | null
+  avatar_public_id?: string | null
   deletedBy?: number
   isDeleted?: boolean
   deletedAt?: Date | string | null
@@ -595,6 +618,7 @@ export type usersUncheckedCreateWithoutCommentsInput = {
   full_name?: string | null
   age?: number | null
   avatar?: string | null
+  avatar_public_id?: string | null
   deletedBy?: number
   isDeleted?: boolean
   deletedAt?: Date | string | null
@@ -626,6 +650,7 @@ export type usersUpdateWithoutCommentsInput = {
   full_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   age?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar_public_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -642,6 +667,7 @@ export type usersUncheckedUpdateWithoutCommentsInput = {
   full_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   age?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar_public_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -657,6 +683,7 @@ export type usersCreateWithoutImagesInput = {
   full_name?: string | null
   age?: number | null
   avatar?: string | null
+  avatar_public_id?: string | null
   deletedBy?: number
   isDeleted?: boolean
   deletedAt?: Date | string | null
@@ -673,6 +700,7 @@ export type usersUncheckedCreateWithoutImagesInput = {
   full_name?: string | null
   age?: number | null
   avatar?: string | null
+  avatar_public_id?: string | null
   deletedBy?: number
   isDeleted?: boolean
   deletedAt?: Date | string | null
@@ -704,6 +732,7 @@ export type usersUpdateWithoutImagesInput = {
   full_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   age?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar_public_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -720,6 +749,7 @@ export type usersUncheckedUpdateWithoutImagesInput = {
   full_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   age?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar_public_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -735,6 +765,7 @@ export type usersCreateWithoutSaved_imagesInput = {
   full_name?: string | null
   age?: number | null
   avatar?: string | null
+  avatar_public_id?: string | null
   deletedBy?: number
   isDeleted?: boolean
   deletedAt?: Date | string | null
@@ -751,6 +782,7 @@ export type usersUncheckedCreateWithoutSaved_imagesInput = {
   full_name?: string | null
   age?: number | null
   avatar?: string | null
+  avatar_public_id?: string | null
   deletedBy?: number
   isDeleted?: boolean
   deletedAt?: Date | string | null
@@ -782,6 +814,7 @@ export type usersUpdateWithoutSaved_imagesInput = {
   full_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   age?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar_public_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -798,6 +831,7 @@ export type usersUncheckedUpdateWithoutSaved_imagesInput = {
   full_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   age?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar_public_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -863,6 +897,7 @@ export type usersSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   full_name?: boolean
   age?: boolean
   avatar?: boolean
+  avatar_public_id?: boolean
   deletedBy?: boolean
   isDeleted?: boolean
   deletedAt?: boolean
@@ -883,6 +918,7 @@ export type usersSelectScalar = {
   full_name?: boolean
   age?: boolean
   avatar?: boolean
+  avatar_public_id?: boolean
   deletedBy?: boolean
   isDeleted?: boolean
   deletedAt?: boolean
@@ -890,7 +926,7 @@ export type usersSelectScalar = {
   updatedAt?: boolean
 }
 
-export type usersOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"user_id" | "email" | "password" | "full_name" | "age" | "avatar" | "deletedBy" | "isDeleted" | "deletedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["users"]>
+export type usersOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"user_id" | "email" | "password" | "full_name" | "age" | "avatar" | "avatar_public_id" | "deletedBy" | "isDeleted" | "deletedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["users"]>
 export type usersInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   comments?: boolean | Prisma.users$commentsArgs<ExtArgs>
   images?: boolean | Prisma.users$imagesArgs<ExtArgs>
@@ -912,6 +948,7 @@ export type $usersPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     full_name: string | null
     age: number | null
     avatar: string | null
+    avatar_public_id: string | null
     deletedBy: number
     isDeleted: boolean
     deletedAt: Date | null
@@ -1295,6 +1332,7 @@ export interface usersFieldRefs {
   readonly full_name: Prisma.FieldRef<"users", 'String'>
   readonly age: Prisma.FieldRef<"users", 'Int'>
   readonly avatar: Prisma.FieldRef<"users", 'String'>
+  readonly avatar_public_id: Prisma.FieldRef<"users", 'String'>
   readonly deletedBy: Prisma.FieldRef<"users", 'Int'>
   readonly isDeleted: Prisma.FieldRef<"users", 'Boolean'>
   readonly deletedAt: Prisma.FieldRef<"users", 'DateTime'>

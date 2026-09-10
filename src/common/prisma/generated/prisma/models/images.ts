@@ -42,6 +42,7 @@ export type ImagesMinAggregateOutputType = {
   image_id: number | null
   image_name: string | null
   url: string | null
+  public_id: string | null
   description: string | null
   user_id: number | null
   deletedBy: number | null
@@ -49,13 +50,13 @@ export type ImagesMinAggregateOutputType = {
   deletedAt: Date | null
   createdAt: Date | null
   updatedAt: Date | null
-  public_id: string | null
 }
 
 export type ImagesMaxAggregateOutputType = {
   image_id: number | null
   image_name: string | null
   url: string | null
+  public_id: string | null
   description: string | null
   user_id: number | null
   deletedBy: number | null
@@ -63,13 +64,13 @@ export type ImagesMaxAggregateOutputType = {
   deletedAt: Date | null
   createdAt: Date | null
   updatedAt: Date | null
-  public_id: string | null
 }
 
 export type ImagesCountAggregateOutputType = {
   image_id: number
   image_name: number
   url: number
+  public_id: number
   description: number
   user_id: number
   deletedBy: number
@@ -77,7 +78,6 @@ export type ImagesCountAggregateOutputType = {
   deletedAt: number
   createdAt: number
   updatedAt: number
-  public_id: number
   _all: number
 }
 
@@ -98,6 +98,7 @@ export type ImagesMinAggregateInputType = {
   image_id?: true
   image_name?: true
   url?: true
+  public_id?: true
   description?: true
   user_id?: true
   deletedBy?: true
@@ -105,13 +106,13 @@ export type ImagesMinAggregateInputType = {
   deletedAt?: true
   createdAt?: true
   updatedAt?: true
-  public_id?: true
 }
 
 export type ImagesMaxAggregateInputType = {
   image_id?: true
   image_name?: true
   url?: true
+  public_id?: true
   description?: true
   user_id?: true
   deletedBy?: true
@@ -119,13 +120,13 @@ export type ImagesMaxAggregateInputType = {
   deletedAt?: true
   createdAt?: true
   updatedAt?: true
-  public_id?: true
 }
 
 export type ImagesCountAggregateInputType = {
   image_id?: true
   image_name?: true
   url?: true
+  public_id?: true
   description?: true
   user_id?: true
   deletedBy?: true
@@ -133,7 +134,6 @@ export type ImagesCountAggregateInputType = {
   deletedAt?: true
   createdAt?: true
   updatedAt?: true
-  public_id?: true
   _all?: true
 }
 
@@ -225,8 +225,9 @@ export type imagesGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalA
 
 export type ImagesGroupByOutputType = {
   image_id: number
-  image_name: string
-  url: string
+  image_name: string | null
+  url: string | null
+  public_id: string | null
   description: string | null
   user_id: number
   deletedBy: number
@@ -234,7 +235,6 @@ export type ImagesGroupByOutputType = {
   deletedAt: Date | null
   createdAt: Date
   updatedAt: Date
-  public_id: string | null
   _count: ImagesCountAggregateOutputType | null
   _avg: ImagesAvgAggregateOutputType | null
   _sum: ImagesSumAggregateOutputType | null
@@ -262,8 +262,9 @@ export type imagesWhereInput = {
   OR?: Prisma.imagesWhereInput[]
   NOT?: Prisma.imagesWhereInput | Prisma.imagesWhereInput[]
   image_id?: Prisma.IntFilter<"images"> | number
-  image_name?: Prisma.StringFilter<"images"> | string
-  url?: Prisma.StringFilter<"images"> | string
+  image_name?: Prisma.StringNullableFilter<"images"> | string | null
+  url?: Prisma.StringNullableFilter<"images"> | string | null
+  public_id?: Prisma.StringNullableFilter<"images"> | string | null
   description?: Prisma.StringNullableFilter<"images"> | string | null
   user_id?: Prisma.IntFilter<"images"> | number
   deletedBy?: Prisma.IntFilter<"images"> | number
@@ -271,7 +272,6 @@ export type imagesWhereInput = {
   deletedAt?: Prisma.DateTimeNullableFilter<"images"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"images"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"images"> | Date | string
-  public_id?: Prisma.StringNullableFilter<"images"> | string | null
   comments?: Prisma.CommentsListRelationFilter
   users?: Prisma.XOR<Prisma.UsersScalarRelationFilter, Prisma.usersWhereInput>
   saved_images?: Prisma.Saved_imagesListRelationFilter
@@ -279,8 +279,9 @@ export type imagesWhereInput = {
 
 export type imagesOrderByWithRelationInput = {
   image_id?: Prisma.SortOrder
-  image_name?: Prisma.SortOrder
-  url?: Prisma.SortOrder
+  image_name?: Prisma.SortOrderInput | Prisma.SortOrder
+  url?: Prisma.SortOrderInput | Prisma.SortOrder
+  public_id?: Prisma.SortOrderInput | Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
   user_id?: Prisma.SortOrder
   deletedBy?: Prisma.SortOrder
@@ -288,7 +289,6 @@ export type imagesOrderByWithRelationInput = {
   deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-  public_id?: Prisma.SortOrderInput | Prisma.SortOrder
   comments?: Prisma.commentsOrderByRelationAggregateInput
   users?: Prisma.usersOrderByWithRelationInput
   saved_images?: Prisma.saved_imagesOrderByRelationAggregateInput
@@ -300,8 +300,9 @@ export type imagesWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.imagesWhereInput | Prisma.imagesWhereInput[]
   OR?: Prisma.imagesWhereInput[]
   NOT?: Prisma.imagesWhereInput | Prisma.imagesWhereInput[]
-  image_name?: Prisma.StringFilter<"images"> | string
-  url?: Prisma.StringFilter<"images"> | string
+  image_name?: Prisma.StringNullableFilter<"images"> | string | null
+  url?: Prisma.StringNullableFilter<"images"> | string | null
+  public_id?: Prisma.StringNullableFilter<"images"> | string | null
   description?: Prisma.StringNullableFilter<"images"> | string | null
   user_id?: Prisma.IntFilter<"images"> | number
   deletedBy?: Prisma.IntFilter<"images"> | number
@@ -309,7 +310,6 @@ export type imagesWhereUniqueInput = Prisma.AtLeast<{
   deletedAt?: Prisma.DateTimeNullableFilter<"images"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"images"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"images"> | Date | string
-  public_id?: Prisma.StringNullableFilter<"images"> | string | null
   comments?: Prisma.CommentsListRelationFilter
   users?: Prisma.XOR<Prisma.UsersScalarRelationFilter, Prisma.usersWhereInput>
   saved_images?: Prisma.Saved_imagesListRelationFilter
@@ -317,8 +317,9 @@ export type imagesWhereUniqueInput = Prisma.AtLeast<{
 
 export type imagesOrderByWithAggregationInput = {
   image_id?: Prisma.SortOrder
-  image_name?: Prisma.SortOrder
-  url?: Prisma.SortOrder
+  image_name?: Prisma.SortOrderInput | Prisma.SortOrder
+  url?: Prisma.SortOrderInput | Prisma.SortOrder
+  public_id?: Prisma.SortOrderInput | Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
   user_id?: Prisma.SortOrder
   deletedBy?: Prisma.SortOrder
@@ -326,7 +327,6 @@ export type imagesOrderByWithAggregationInput = {
   deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-  public_id?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.imagesCountOrderByAggregateInput
   _avg?: Prisma.imagesAvgOrderByAggregateInput
   _max?: Prisma.imagesMaxOrderByAggregateInput
@@ -339,8 +339,9 @@ export type imagesScalarWhereWithAggregatesInput = {
   OR?: Prisma.imagesScalarWhereWithAggregatesInput[]
   NOT?: Prisma.imagesScalarWhereWithAggregatesInput | Prisma.imagesScalarWhereWithAggregatesInput[]
   image_id?: Prisma.IntWithAggregatesFilter<"images"> | number
-  image_name?: Prisma.StringWithAggregatesFilter<"images"> | string
-  url?: Prisma.StringWithAggregatesFilter<"images"> | string
+  image_name?: Prisma.StringNullableWithAggregatesFilter<"images"> | string | null
+  url?: Prisma.StringNullableWithAggregatesFilter<"images"> | string | null
+  public_id?: Prisma.StringNullableWithAggregatesFilter<"images"> | string | null
   description?: Prisma.StringNullableWithAggregatesFilter<"images"> | string | null
   user_id?: Prisma.IntWithAggregatesFilter<"images"> | number
   deletedBy?: Prisma.IntWithAggregatesFilter<"images"> | number
@@ -348,19 +349,18 @@ export type imagesScalarWhereWithAggregatesInput = {
   deletedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"images"> | Date | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"images"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"images"> | Date | string
-  public_id?: Prisma.StringNullableWithAggregatesFilter<"images"> | string | null
 }
 
 export type imagesCreateInput = {
-  image_name: string
-  url: string
+  image_name?: string | null
+  url?: string | null
+  public_id?: string | null
   description?: string | null
   deletedBy?: number
   isDeleted?: boolean
   deletedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
-  public_id?: string | null
   comments?: Prisma.commentsCreateNestedManyWithoutImagesInput
   users: Prisma.usersCreateNestedOneWithoutImagesInput
   saved_images?: Prisma.saved_imagesCreateNestedManyWithoutImagesInput
@@ -368,8 +368,9 @@ export type imagesCreateInput = {
 
 export type imagesUncheckedCreateInput = {
   image_id?: number
-  image_name: string
-  url: string
+  image_name?: string | null
+  url?: string | null
+  public_id?: string | null
   description?: string | null
   user_id: number
   deletedBy?: number
@@ -377,21 +378,20 @@ export type imagesUncheckedCreateInput = {
   deletedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
-  public_id?: string | null
   comments?: Prisma.commentsUncheckedCreateNestedManyWithoutImagesInput
   saved_images?: Prisma.saved_imagesUncheckedCreateNestedManyWithoutImagesInput
 }
 
 export type imagesUpdateInput = {
-  image_name?: Prisma.StringFieldUpdateOperationsInput | string
-  url?: Prisma.StringFieldUpdateOperationsInput | string
+  image_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  public_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  public_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   comments?: Prisma.commentsUpdateManyWithoutImagesNestedInput
   users?: Prisma.usersUpdateOneRequiredWithoutImagesNestedInput
   saved_images?: Prisma.saved_imagesUpdateManyWithoutImagesNestedInput
@@ -399,8 +399,9 @@ export type imagesUpdateInput = {
 
 export type imagesUncheckedUpdateInput = {
   image_id?: Prisma.IntFieldUpdateOperationsInput | number
-  image_name?: Prisma.StringFieldUpdateOperationsInput | string
-  url?: Prisma.StringFieldUpdateOperationsInput | string
+  image_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  public_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
@@ -408,15 +409,15 @@ export type imagesUncheckedUpdateInput = {
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  public_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   comments?: Prisma.commentsUncheckedUpdateManyWithoutImagesNestedInput
   saved_images?: Prisma.saved_imagesUncheckedUpdateManyWithoutImagesNestedInput
 }
 
 export type imagesCreateManyInput = {
   image_id?: number
-  image_name: string
-  url: string
+  image_name?: string | null
+  url?: string | null
+  public_id?: string | null
   description?: string | null
   user_id: number
   deletedBy?: number
@@ -424,25 +425,25 @@ export type imagesCreateManyInput = {
   deletedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
-  public_id?: string | null
 }
 
 export type imagesUpdateManyMutationInput = {
-  image_name?: Prisma.StringFieldUpdateOperationsInput | string
-  url?: Prisma.StringFieldUpdateOperationsInput | string
+  image_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  public_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  public_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type imagesUncheckedUpdateManyInput = {
   image_id?: Prisma.IntFieldUpdateOperationsInput | number
-  image_name?: Prisma.StringFieldUpdateOperationsInput | string
-  url?: Prisma.StringFieldUpdateOperationsInput | string
+  image_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  public_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
@@ -450,7 +451,6 @@ export type imagesUncheckedUpdateManyInput = {
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  public_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type ImagesScalarRelationFilter = {
@@ -468,6 +468,7 @@ export type imagesCountOrderByAggregateInput = {
   image_id?: Prisma.SortOrder
   image_name?: Prisma.SortOrder
   url?: Prisma.SortOrder
+  public_id?: Prisma.SortOrder
   description?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
   deletedBy?: Prisma.SortOrder
@@ -475,7 +476,6 @@ export type imagesCountOrderByAggregateInput = {
   deletedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-  public_id?: Prisma.SortOrder
 }
 
 export type imagesAvgOrderByAggregateInput = {
@@ -488,6 +488,7 @@ export type imagesMaxOrderByAggregateInput = {
   image_id?: Prisma.SortOrder
   image_name?: Prisma.SortOrder
   url?: Prisma.SortOrder
+  public_id?: Prisma.SortOrder
   description?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
   deletedBy?: Prisma.SortOrder
@@ -495,13 +496,13 @@ export type imagesMaxOrderByAggregateInput = {
   deletedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-  public_id?: Prisma.SortOrder
 }
 
 export type imagesMinOrderByAggregateInput = {
   image_id?: Prisma.SortOrder
   image_name?: Prisma.SortOrder
   url?: Prisma.SortOrder
+  public_id?: Prisma.SortOrder
   description?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
   deletedBy?: Prisma.SortOrder
@@ -509,7 +510,6 @@ export type imagesMinOrderByAggregateInput = {
   deletedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-  public_id?: Prisma.SortOrder
 }
 
 export type imagesSumOrderByAggregateInput = {
@@ -603,23 +603,24 @@ export type imagesUncheckedUpdateManyWithoutUsersNestedInput = {
 }
 
 export type imagesCreateWithoutCommentsInput = {
-  image_name: string
-  url: string
+  image_name?: string | null
+  url?: string | null
+  public_id?: string | null
   description?: string | null
   deletedBy?: number
   isDeleted?: boolean
   deletedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
-  public_id?: string | null
   users: Prisma.usersCreateNestedOneWithoutImagesInput
   saved_images?: Prisma.saved_imagesCreateNestedManyWithoutImagesInput
 }
 
 export type imagesUncheckedCreateWithoutCommentsInput = {
   image_id?: number
-  image_name: string
-  url: string
+  image_name?: string | null
+  url?: string | null
+  public_id?: string | null
   description?: string | null
   user_id: number
   deletedBy?: number
@@ -627,7 +628,6 @@ export type imagesUncheckedCreateWithoutCommentsInput = {
   deletedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
-  public_id?: string | null
   saved_images?: Prisma.saved_imagesUncheckedCreateNestedManyWithoutImagesInput
 }
 
@@ -648,23 +648,24 @@ export type imagesUpdateToOneWithWhereWithoutCommentsInput = {
 }
 
 export type imagesUpdateWithoutCommentsInput = {
-  image_name?: Prisma.StringFieldUpdateOperationsInput | string
-  url?: Prisma.StringFieldUpdateOperationsInput | string
+  image_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  public_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  public_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   users?: Prisma.usersUpdateOneRequiredWithoutImagesNestedInput
   saved_images?: Prisma.saved_imagesUpdateManyWithoutImagesNestedInput
 }
 
 export type imagesUncheckedUpdateWithoutCommentsInput = {
   image_id?: Prisma.IntFieldUpdateOperationsInput | number
-  image_name?: Prisma.StringFieldUpdateOperationsInput | string
-  url?: Prisma.StringFieldUpdateOperationsInput | string
+  image_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  public_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
@@ -672,28 +673,28 @@ export type imagesUncheckedUpdateWithoutCommentsInput = {
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  public_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   saved_images?: Prisma.saved_imagesUncheckedUpdateManyWithoutImagesNestedInput
 }
 
 export type imagesCreateWithoutSaved_imagesInput = {
-  image_name: string
-  url: string
+  image_name?: string | null
+  url?: string | null
+  public_id?: string | null
   description?: string | null
   deletedBy?: number
   isDeleted?: boolean
   deletedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
-  public_id?: string | null
   comments?: Prisma.commentsCreateNestedManyWithoutImagesInput
   users: Prisma.usersCreateNestedOneWithoutImagesInput
 }
 
 export type imagesUncheckedCreateWithoutSaved_imagesInput = {
   image_id?: number
-  image_name: string
-  url: string
+  image_name?: string | null
+  url?: string | null
+  public_id?: string | null
   description?: string | null
   user_id: number
   deletedBy?: number
@@ -701,7 +702,6 @@ export type imagesUncheckedCreateWithoutSaved_imagesInput = {
   deletedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
-  public_id?: string | null
   comments?: Prisma.commentsUncheckedCreateNestedManyWithoutImagesInput
 }
 
@@ -722,23 +722,24 @@ export type imagesUpdateToOneWithWhereWithoutSaved_imagesInput = {
 }
 
 export type imagesUpdateWithoutSaved_imagesInput = {
-  image_name?: Prisma.StringFieldUpdateOperationsInput | string
-  url?: Prisma.StringFieldUpdateOperationsInput | string
+  image_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  public_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  public_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   comments?: Prisma.commentsUpdateManyWithoutImagesNestedInput
   users?: Prisma.usersUpdateOneRequiredWithoutImagesNestedInput
 }
 
 export type imagesUncheckedUpdateWithoutSaved_imagesInput = {
   image_id?: Prisma.IntFieldUpdateOperationsInput | number
-  image_name?: Prisma.StringFieldUpdateOperationsInput | string
-  url?: Prisma.StringFieldUpdateOperationsInput | string
+  image_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  public_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
@@ -746,35 +747,34 @@ export type imagesUncheckedUpdateWithoutSaved_imagesInput = {
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  public_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   comments?: Prisma.commentsUncheckedUpdateManyWithoutImagesNestedInput
 }
 
 export type imagesCreateWithoutUsersInput = {
-  image_name: string
-  url: string
+  image_name?: string | null
+  url?: string | null
+  public_id?: string | null
   description?: string | null
   deletedBy?: number
   isDeleted?: boolean
   deletedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
-  public_id?: string | null
   comments?: Prisma.commentsCreateNestedManyWithoutImagesInput
   saved_images?: Prisma.saved_imagesCreateNestedManyWithoutImagesInput
 }
 
 export type imagesUncheckedCreateWithoutUsersInput = {
   image_id?: number
-  image_name: string
-  url: string
+  image_name?: string | null
+  url?: string | null
+  public_id?: string | null
   description?: string | null
   deletedBy?: number
   isDeleted?: boolean
   deletedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
-  public_id?: string | null
   comments?: Prisma.commentsUncheckedCreateNestedManyWithoutImagesInput
   saved_images?: Prisma.saved_imagesUncheckedCreateNestedManyWithoutImagesInput
 }
@@ -810,8 +810,9 @@ export type imagesScalarWhereInput = {
   OR?: Prisma.imagesScalarWhereInput[]
   NOT?: Prisma.imagesScalarWhereInput | Prisma.imagesScalarWhereInput[]
   image_id?: Prisma.IntFilter<"images"> | number
-  image_name?: Prisma.StringFilter<"images"> | string
-  url?: Prisma.StringFilter<"images"> | string
+  image_name?: Prisma.StringNullableFilter<"images"> | string | null
+  url?: Prisma.StringNullableFilter<"images"> | string | null
+  public_id?: Prisma.StringNullableFilter<"images"> | string | null
   description?: Prisma.StringNullableFilter<"images"> | string | null
   user_id?: Prisma.IntFilter<"images"> | number
   deletedBy?: Prisma.IntFilter<"images"> | number
@@ -819,62 +820,61 @@ export type imagesScalarWhereInput = {
   deletedAt?: Prisma.DateTimeNullableFilter<"images"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"images"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"images"> | Date | string
-  public_id?: Prisma.StringNullableFilter<"images"> | string | null
 }
 
 export type imagesCreateManyUsersInput = {
   image_id?: number
-  image_name: string
-  url: string
+  image_name?: string | null
+  url?: string | null
+  public_id?: string | null
   description?: string | null
   deletedBy?: number
   isDeleted?: boolean
   deletedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
-  public_id?: string | null
 }
 
 export type imagesUpdateWithoutUsersInput = {
-  image_name?: Prisma.StringFieldUpdateOperationsInput | string
-  url?: Prisma.StringFieldUpdateOperationsInput | string
+  image_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  public_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  public_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   comments?: Prisma.commentsUpdateManyWithoutImagesNestedInput
   saved_images?: Prisma.saved_imagesUpdateManyWithoutImagesNestedInput
 }
 
 export type imagesUncheckedUpdateWithoutUsersInput = {
   image_id?: Prisma.IntFieldUpdateOperationsInput | number
-  image_name?: Prisma.StringFieldUpdateOperationsInput | string
-  url?: Prisma.StringFieldUpdateOperationsInput | string
+  image_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  public_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  public_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   comments?: Prisma.commentsUncheckedUpdateManyWithoutImagesNestedInput
   saved_images?: Prisma.saved_imagesUncheckedUpdateManyWithoutImagesNestedInput
 }
 
 export type imagesUncheckedUpdateManyWithoutUsersInput = {
   image_id?: Prisma.IntFieldUpdateOperationsInput | number
-  image_name?: Prisma.StringFieldUpdateOperationsInput | string
-  url?: Prisma.StringFieldUpdateOperationsInput | string
+  image_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  public_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deletedBy?: Prisma.IntFieldUpdateOperationsInput | number
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  public_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 
@@ -921,6 +921,7 @@ export type imagesSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   image_id?: boolean
   image_name?: boolean
   url?: boolean
+  public_id?: boolean
   description?: boolean
   user_id?: boolean
   deletedBy?: boolean
@@ -928,7 +929,6 @@ export type imagesSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   deletedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  public_id?: boolean
   comments?: boolean | Prisma.images$commentsArgs<ExtArgs>
   users?: boolean | Prisma.usersDefaultArgs<ExtArgs>
   saved_images?: boolean | Prisma.images$saved_imagesArgs<ExtArgs>
@@ -941,6 +941,7 @@ export type imagesSelectScalar = {
   image_id?: boolean
   image_name?: boolean
   url?: boolean
+  public_id?: boolean
   description?: boolean
   user_id?: boolean
   deletedBy?: boolean
@@ -948,10 +949,9 @@ export type imagesSelectScalar = {
   deletedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  public_id?: boolean
 }
 
-export type imagesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"image_id" | "image_name" | "url" | "description" | "user_id" | "deletedBy" | "isDeleted" | "deletedAt" | "createdAt" | "updatedAt" | "public_id", ExtArgs["result"]["images"]>
+export type imagesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"image_id" | "image_name" | "url" | "public_id" | "description" | "user_id" | "deletedBy" | "isDeleted" | "deletedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["images"]>
 export type imagesInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   comments?: boolean | Prisma.images$commentsArgs<ExtArgs>
   users?: boolean | Prisma.usersDefaultArgs<ExtArgs>
@@ -968,8 +968,9 @@ export type $imagesPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     image_id: number
-    image_name: string
-    url: string
+    image_name: string | null
+    url: string | null
+    public_id: string | null
     description: string | null
     user_id: number
     deletedBy: number
@@ -977,7 +978,6 @@ export type $imagesPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     deletedAt: Date | null
     createdAt: Date
     updatedAt: Date
-    public_id: string | null
   }, ExtArgs["result"]["images"]>
   composites: {}
 }
@@ -1353,6 +1353,7 @@ export interface imagesFieldRefs {
   readonly image_id: Prisma.FieldRef<"images", 'Int'>
   readonly image_name: Prisma.FieldRef<"images", 'String'>
   readonly url: Prisma.FieldRef<"images", 'String'>
+  readonly public_id: Prisma.FieldRef<"images", 'String'>
   readonly description: Prisma.FieldRef<"images", 'String'>
   readonly user_id: Prisma.FieldRef<"images", 'Int'>
   readonly deletedBy: Prisma.FieldRef<"images", 'Int'>
@@ -1360,7 +1361,6 @@ export interface imagesFieldRefs {
   readonly deletedAt: Prisma.FieldRef<"images", 'DateTime'>
   readonly createdAt: Prisma.FieldRef<"images", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"images", 'DateTime'>
-  readonly public_id: Prisma.FieldRef<"images", 'String'>
 }
     
 

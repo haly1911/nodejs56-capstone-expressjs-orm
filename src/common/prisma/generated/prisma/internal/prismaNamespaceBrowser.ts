@@ -92,14 +92,14 @@ export const ImagesScalarFieldEnum = {
   image_id: 'image_id',
   image_name: 'image_name',
   url: 'url',
+  public_id: 'public_id',
   description: 'description',
   user_id: 'user_id',
   deletedBy: 'deletedBy',
   isDeleted: 'isDeleted',
   deletedAt: 'deletedAt',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
-  public_id: 'public_id'
+  updatedAt: 'updatedAt'
 } as const
 
 export type ImagesScalarFieldEnum = (typeof ImagesScalarFieldEnum)[keyof typeof ImagesScalarFieldEnum]
@@ -125,6 +125,7 @@ export const UsersScalarFieldEnum = {
   full_name: 'full_name',
   age: 'age',
   avatar: 'avatar',
+  avatar_public_id: 'avatar_public_id',
   deletedBy: 'deletedBy',
   isDeleted: 'isDeleted',
   deletedAt: 'deletedAt',
@@ -161,8 +162,8 @@ export type commentsOrderByRelevanceFieldEnum = (typeof commentsOrderByRelevance
 export const imagesOrderByRelevanceFieldEnum = {
   image_name: 'image_name',
   url: 'url',
-  description: 'description',
-  public_id: 'public_id'
+  public_id: 'public_id',
+  description: 'description'
 } as const
 
 export type imagesOrderByRelevanceFieldEnum = (typeof imagesOrderByRelevanceFieldEnum)[keyof typeof imagesOrderByRelevanceFieldEnum]
@@ -172,7 +173,8 @@ export const usersOrderByRelevanceFieldEnum = {
   email: 'email',
   password: 'password',
   full_name: 'full_name',
-  avatar: 'avatar'
+  avatar: 'avatar',
+  avatar_public_id: 'avatar_public_id'
 } as const
 
 export type usersOrderByRelevanceFieldEnum = (typeof usersOrderByRelevanceFieldEnum)[keyof typeof usersOrderByRelevanceFieldEnum]

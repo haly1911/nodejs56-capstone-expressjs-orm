@@ -27,8 +27,9 @@ model comments {
 
 model images {
   image_id     Int            @id @default(autoincrement())
-  image_name   String         @db.VarChar(255)
-  url          String         @db.Text
+  image_name   String?        @db.VarChar(255)
+  url          String?        @db.Text
+  public_id    String?        @db.VarChar(255)
   description  String?        @db.VarChar(255)
   user_id      Int
   deletedBy    Int            @default(0)
@@ -36,7 +37,6 @@ model images {
   deletedAt    DateTime?      @db.Timestamp(0)
   createdAt    DateTime       @default(now()) @db.Timestamp(0)
   updatedAt    DateTime       @default(now()) @db.Timestamp(0)
-  public_id    String?        @db.VarChar(255)
   comments     comments[]
   users        users          @relation(fields: [user_id], references: [user_id], onDelete: NoAction, onUpdate: NoAction, map: "images_ibfk_1")
   saved_images saved_images[]
@@ -60,18 +60,19 @@ model saved_images {
 }
 
 model users {
-  user_id      Int            @id @default(autoincrement())
-  email        String         @unique(map: "email") @db.VarChar(255)
-  password     String?        @db.VarChar(255)
-  full_name    String?        @db.VarChar(255)
-  age          Int?
-  avatar       String?        @db.Text
-  deletedBy    Int            @default(0)
-  isDeleted    Boolean        @default(false)
-  deletedAt    DateTime?      @db.Timestamp(0)
-  createdAt    DateTime       @default(now()) @db.Timestamp(0)
-  updatedAt    DateTime       @default(now()) @db.Timestamp(0)
-  comments     comments[]
-  images       images[]
-  saved_images saved_images[]
+  user_id          Int            @id @default(autoincrement())
+  email            String         @unique(map: "email") @db.VarChar(255)
+  password         String?        @db.VarChar(255)
+  full_name        String?        @db.VarChar(255)
+  age              Int?
+  avatar           String?        @db.Text
+  avatar_public_id String?        @db.VarChar(255)
+  deletedBy        Int            @default(0)
+  isDeleted        Boolean        @default(false)
+  deletedAt        DateTime?      @db.Timestamp(0)
+  createdAt        DateTime       @default(now()) @db.Timestamp(0)
+  updatedAt        DateTime       @default(now()) @db.Timestamp(0)
+  comments         comments[]
+  images           images[]
+  saved_images     saved_images[]
 }
