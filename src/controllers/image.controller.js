@@ -35,7 +35,7 @@ export const imageController = {
 
   async deleteImage(req, res) {
     const result = await imageService.deleteImage(req);
-    const response = responseSuccess(result, `Remove image successfully`);
+    const response = responseSuccess(result, `Delete image successfully`);
     res.status(response.statusCode).json(response);
   },
 };
