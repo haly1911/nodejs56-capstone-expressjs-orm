@@ -10,7 +10,7 @@ export const authController = {
 
   async signIn(req, res, next) {
     const result = await authService.signIn(req);
-    const response = responseSuccess(result, `Sign in successfully`);
+    const response = responseSuccess(true, `Sign in successfully`);
     res.cookie("accessToken", result.accessToken);
     res.cookie("refreshToken", result.refreshToken);
     res.status(response.statusCode).json(response);
@@ -18,7 +18,7 @@ export const authController = {
 
   async getInfo(req, res, next) {
     const result = await authService.getInfo(req);
-    const response = responseSuccess(true, "Get info successfully");
+    const response = responseSuccess(result, "Get info successfully");
     res.status(response.statusCode).json(response);
   },
 
@@ -28,5 +28,16 @@ export const authController = {
     res.cookie("accessToken", result.accessToken);
     res.cookie("refreshToken", result.refreshToken);
     res.status(response.statusCode).json(response);
+  },
+
+  async googleCallback(req, res, next) {
+    res.cookie("accessToken", req.user.accessToken);
+    res.cookie("refreshToken", req.user.refreshToken);
+    // res.redirect("http://localhost:3000/login-callback");
+    res.status(200).json({
+      status: "success",
+      message: "Google login successfully",
+      data: req.user,
+    });
   },
 };

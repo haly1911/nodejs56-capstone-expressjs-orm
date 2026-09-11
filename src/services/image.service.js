@@ -11,7 +11,7 @@ export const imageService = {
       skip: index,
       take: pageSize,
       include: {
-        users: { select: { full_name: (u) => u, avatar: true } },
+        users: { select: { full_name: true, avatar: true } },
       },
     });
     const totalItems = await prisma.images.count({ where });

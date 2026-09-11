@@ -15,7 +15,6 @@ export const responseError = (message = "Internal server error", statusCode = st
     status: "error",
     statusCode,
     message,
-    stack,
     doc: "swagger.com",
   };
 };
