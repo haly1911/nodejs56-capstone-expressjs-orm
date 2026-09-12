@@ -1,20 +1,44 @@
 import { prisma } from "../common/prisma/connect.prisma.js";
 import { BadRequestException } from "../common/helpers/exception.helper.js";
+import { buildQueryPrisma } from "../common/helpers/build-query-prisma.helper.js";
 
 export const savedImageService = {
   async getSavedImages(req) {
     const userId = req.user.user_id;
-    const savedList = await prisma.saved_images.findMany({
-      where: { user_id: userId },
+    const { where, page, pageSize, index } = buildQueryPrisma(req);
+    const resultPrisma = await prisma.saved_images.findMany({
+      where: {
+        user_id: userId,
+        images: {
+          isDeleted: false,
+        },
+      },
+      skip: index,
+      take: pageSize,
       include: { images: true },
       orderBy: { createdAt: "desc" },
     });
-    return savedList;
+
+    const totalItems = await prisma.saved_images.count({ where: { user_id: userId, images: { isDeleted: false } } });
+    const totalPages = Math.ceil(totalItems / pageSize);
+
+    return {
+      items: resultPrisma,
+      totalItems,
+      totalPages,
+      pageSize,
+    };
   },
 
   async checkSavedStatus(req) {
     const userId = req.user.user_id;
     const { imageId } = req.params;
+    const image = await prisma.images.findUnique({
+      where: { image_id: Number(imageId) },
+    });
+    if (!image || image.isDeleted) {
+      throw new BadRequestException("Image does not exist or has been deleted");
+    }
     const saved = await prisma.saved_images.findUnique({
       where: {
         user_id_image_id: {
@@ -32,7 +56,9 @@ export const savedImageService = {
     const image = await prisma.images.findUnique({
       where: { image_id: Number(imageId) },
     });
-    if (!image) throw new BadRequestException("Image does not exist");
+    if (!image || image.isDeleted) {
+      throw new BadRequestException("Image does not exist or has been deleted");
+    }
 
     const existingSave = await prisma.saved_images.findUnique({
       where: {

@@ -4,8 +4,14 @@ import { BadRequestException, UnauthorizedException } from "../common/helpers/ex
 export const commentService = {
   async getCommentsByImage(req) {
     const { imageId } = req.params;
-    const comments = await prisma.comments.findMany({
+    const image = await prisma.images.findUnique({
       where: { image_id: Number(imageId) },
+    });
+    if (!image || image.isDeleted) {
+      throw new BadRequestException("Image does not exist or has been deleted");
+    }
+    const comments = await prisma.comments.findMany({
+      where: { image_id: Number(imageId), isDeleted: false },
       include: {
         users: {
           select: {
@@ -28,7 +34,7 @@ export const commentService = {
     const image = await prisma.images.findUnique({
       where: { image_id: Number(imageId) },
     });
-    if (!image) throw new BadRequestException("Image does not exist");
+    if (!image || image.isDeleted) throw new BadRequestException("Image does not exist or has been deleted");
 
     const newComment = await prisma.comments.create({
       data: {
@@ -57,7 +63,7 @@ export const commentService = {
     const comment = await prisma.comments.findUnique({
       where: { comment_id: Number(commentId) },
     });
-    if (!comment) throw new BadRequestException("Comment does not exist");
+    if (!comment || comment.isDeleted) throw new BadRequestException("Comment does not exist or has been deleted");
     if (comment.user_id !== userId) throw new UnauthorizedException("You do not have permission to edit this comment");
 
     const updatedComment = await prisma.comments.update({
@@ -77,7 +83,9 @@ export const commentService = {
     const comment = await prisma.comments.findUnique({
       where: { comment_id: Number(commentId) },
     });
-    if (!comment) throw new BadRequestException("Comment does not exist");
+    if (!comment || comment.isDeleted) {
+      throw new BadRequestException("Comment does not exist or has been deleted");
+    }
     if (comment.user_id !== userId)
       throw new UnauthorizedException("You do not have permission to delete this comment");
 
@@ -86,7 +94,7 @@ export const commentService = {
       data: {
         isDeleted: true,
         deletedAt: new Date(),
-        deletedBy: 1,
+        deletedBy: userId,
       },
     });
     return true;

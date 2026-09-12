@@ -4,7 +4,7 @@ import { responseSuccess } from "../common/helpers/response.helper.js";
 export const authController = {
   async signUp(req, res, next) {
     const result = await authService.signUp(req);
-    const response = responseSuccess(result, `Sign up successfully`);
+    const response = responseSuccess(result, `Sign up successfully. Please sign in to continue`);
     res.status(response.statusCode).json(response);
   },
 

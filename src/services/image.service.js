@@ -48,7 +48,15 @@ export const imageService = {
       where: {
         image_id: Number(imageId),
       },
-      include: { users: true },
+      include: {
+        users: {
+          select: {
+            user_id: true,
+            full_name: true,
+            avatar: true,
+          },
+        },
+      },
     });
     if (!result) throw new BadRequestException("Failed to find image");
     return result;
@@ -113,7 +121,17 @@ export const imageService = {
   },
 
   async deleteImage(req) {
+    const userId = req.user.user_id;
     const { imageId } = req.params;
+    const existingImage = await prisma.images.findUnique({
+      where: { image_id: Number(imageId) },
+    });
+    if (!existingImage || existingImage.isDeleted) {
+      throw new BadRequestException("Image not found or already deleted");
+    }
+    if (existingImage.user_id !== userId) {
+      throw new UnauthorizedException("You do not have permission to delete this image");
+    }
     await prisma.images.update({
       where: {
         image_id: Number(imageId),
@@ -121,7 +139,7 @@ export const imageService = {
       data: {
         isDeleted: true,
         deletedAt: new Date(),
-        deletedBy: 1,
+        deletedBy: userId,
       },
     });
     return true;

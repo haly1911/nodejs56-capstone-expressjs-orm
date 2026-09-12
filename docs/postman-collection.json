@@ -1,0 +1,574 @@
+{
+  "info": {
+    "_postman_id": "f242ffde-f3f8-4a3f-892a-f0f28aa40f99",
+    "name": "postman-collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "56556298",
+    "_collection_link": "https://go.postman.co/collection/56556298-f242ffde-f3f8-4a3f-892a-f0f28aa40f99?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "sign in",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\" : \"tranhoangm@gmail.com\",\r\n    \"password\" : \"Abc@123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{domain}}/auth/signin",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "auth",
+                "signin"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "sign up",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\" : \"tranhoangm@gmail.com\",\r\n    \"password\" : \"Abc@123\",\r\n    \"fullName\": \"Tran Hoang M\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{domain}}/auth/signup",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "auth",
+                "signup"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get info",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{domain}}/auth/get-info",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "auth",
+                "get-info"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "refresh token",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{domain}}/auth/refresh-token",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "auth",
+                "refresh-token"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Comments",
+      "item": [
+        {
+          "name": "list comments",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{domain}}/comments/1",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "comments",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "create comment",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"content\": \"Beautiful picture\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{domain}}/comments/1",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "comments",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update comment",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"content\": \"Great pic\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{domain}}/comments/8",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "comments",
+                "8"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete comment",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"content\": \"Great picture\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{domain}}/comments/8",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "comments",
+                "8"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Images",
+      "item": [
+        {
+          "name": "list image",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{domain}}/image?page=1&pageSize=10&filters={\"image_name\": \"mo\"}",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "image"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "10"
+                },
+                {
+                  "key": "filters",
+                  "value": "{\"image_name\": \"mo\"}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "image detail",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{domain}}/image/2",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "image",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "create image",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": [
+                    "/C:/Users/Admin/Downloads/music-production.jpg"
+                  ]
+                },
+                {
+                  "key": "image_name",
+                  "value": "Music Production",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "Music Production Image",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{domain}}/image",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "image"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update image",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": [
+                    "/C:/Users/Admin/Downloads/logo-design.jpg"
+                  ]
+                },
+                {
+                  "key": "image_name",
+                  "value": "Logo Design",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "Logo Design Image",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{domain}}/image/9",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "image",
+                "9"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete image",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{domain}}/image/8",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "image",
+                "8"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "list image created by user",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{domain}}/image/created?page=1&pageSize=10",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "image",
+                "created"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Saved images",
+      "item": [
+        {
+          "name": "list saved images",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{domain}}/saved-images?page=1&pageSize=10",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "saved-images"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "check saved status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{domain}}/saved-images/check/2",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "saved-images",
+                "check",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "toggle save",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{domain}}/saved-images/2",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "saved-images",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "get profile",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{domain}}/user/profile",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "user",
+                "profile"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update profile",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"full_name\": \"Trần Hoàng Minh\",\r\n    \"age\": 25\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{domain}}/user/profile",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "user",
+                "profile"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "upload avatar",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "avatar",
+                  "type": "file",
+                  "src": [
+                    "/C:/Users/Admin/Downloads/ai-intergration.jpg"
+                  ]
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{domain}}/user/avatar",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "user",
+                "avatar"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "change password",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"oldPassword\": \"Abc@1234\",\r\n    \"newPassword\": \"Abc@123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{domain}}/user/change-password",
+              "host": [
+                "{{domain}}"
+              ],
+              "path": [
+                "user",
+                "change-password"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "domain",
+      "value": "localhost:3069/api"
+    }
+  ]
+}
