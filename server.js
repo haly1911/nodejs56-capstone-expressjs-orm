@@ -8,6 +8,7 @@ import { appError } from "./src/common/helpers/appError.helper.js";
 import { initSignInGooglePassport } from "./src/common/passport/signin-google.passport.js";
 import swaggerUi from "swagger-ui-express";
 import { swaggerDocument } from "./src/common/swagger/init.swagger.js";
+import { PORT } from "./src/common/constants/app.constant.js";
 
 const app = express();
 
@@ -24,7 +25,6 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use("/api", appLimit, rootRouter);
 app.use(appError);
 
-const PORT = 3069;
 app.listen(PORT, () => {
   console.log(`server online at localhost:${PORT}`);
 });
