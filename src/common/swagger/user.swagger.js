@@ -30,6 +30,33 @@ export const user = {
       responses: { 200: { description: "OK" } },
     },
   },
+  "/user/change-password": {
+    post: {
+      tags: ["User"],
+      summary: "Change current user password",
+      requestBody: {
+        content: {
+          "application/json": {
+            schema: {
+              type: "object",
+              properties: {
+                oldPassword: {
+                  type: "string",
+                  example: "Abc@1234",
+                },
+                newPassword: {
+                  type: "string",
+                  example: "Abc@123",
+                },
+              },
+              required: ["oldPassword", "newPassword"],
+            },
+          },
+        },
+      },
+      responses: { 200: { description: "Password changed successfully. Please sign in again" } },
+    },
+  },
   "/user/avatar": {
     post: {
       tags: ["User"],

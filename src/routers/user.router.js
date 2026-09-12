@@ -10,6 +10,7 @@ userRouter.use(protect);
 
 userRouter.get("/profile", userController.getProfile);
 userRouter.put("/profile", userController.updateProfile);
+userRouter.post("/change-password", userController.changePassword);
 userRouter.post("/avatar", handleUpload(uploadMemory.single("avatar")), userController.updateAvatar);
 
 export default userRouter;

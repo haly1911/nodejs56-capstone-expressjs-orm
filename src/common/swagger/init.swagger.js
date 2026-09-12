@@ -8,7 +8,7 @@ export const swaggerDocument = {
   openapi: "3.0.4",
   info: {
     title: "Capstone ExpressJS ORM API",
-    description: "Optional multiline or single-line description in [CommonMark](http://commonmark.org/help/) or HTML.",
+    description: "Optional multiline or single-line description in [CommonMark](http://commonmark.org/help/) or HTML",
     version: "0.1.0",
   },
 
